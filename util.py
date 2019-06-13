@@ -55,7 +55,7 @@ def resize_snapshot():
                 imResize = im.resize((640, 400), Image.ANTIALIAS)
                 imResize.save(f + '.png', 'PNG', quality=100)
             except:
-                print "exception happened when processing for:" + item
+                print ("exception happened when processing for:" + item)
 
 def date_isvalid(date_enter):
     try:
