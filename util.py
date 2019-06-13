@@ -44,6 +44,27 @@ def capture_element_screenshot(locator, filename):
     except:
         raise RuntimeError("Failed to capture image")
 
+def resize_snapshot():
+    # print "value of path is:"
+    # print path
+    for item in os.listdir(path):
+        if item.startswith('selenium-screenshot') and os.stat(path + '/' + item).st_size > 100:
+            try:
+                im = Image.open(path + '/' + item)
+                f, e = os.path.splitext(path + '/' + item)
+                imResize = im.resize((640, 400), Image.ANTIALIAS)
+                imResize.save(f + '.png', 'PNG', quality=100)
+            except:
+                print "exception happened when processing for:" + item
+
+def date_isvalid(date_enter):
+    try:
+        valid_date_format = datetime.strptime(date_enter, '%d %B %Y')
+        print ('valid date!', valid_date_format)
+        return True
+    except ValueError:
+         return False
+
 
 def get_test_environment_name_from_project_URL(url):
     if '.dev.' in url:
