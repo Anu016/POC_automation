@@ -53,7 +53,7 @@ input a valid email address
     input text    ${navloginpanel_email}    yellow.business.owner@gmail.com
 
 input a valid password
-    input password    ${navloginpanel_password}    1234567
+    input password    ${navloginpanel_password}    12345678
 
 click 'Login'
     click element and wait for another element    ${navloginpanel_login}    ${my_navlogin_loggedinusername}
